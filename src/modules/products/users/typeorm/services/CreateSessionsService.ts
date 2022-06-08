@@ -1,6 +1,7 @@
 import AppError from '@shared/errors/AppError';
 import { compare, hash } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
+import authConfig from '@config/auth';
 import { getCustomRepository } from 'typeorm';
 import User from '../entities/User';
 import UsersRepository from '../repositories/UserRepository';
@@ -31,9 +32,9 @@ class CreateSessionsService {
       throw new AppError('Incorrect email/password.', 401);
     }
 
-    const token = sign({}, '68c10a9fa75788f5868426f65a429b08', {
+    const token = sign({}, authConfig.jwt.secret, {
       subject: user.id,
-      expiresIn: '1d',
+      expiresIn: authConfig.jwt.expiresIn,
     });
 
     //autenticação com JWT, aula 47
