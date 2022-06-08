@@ -1,11 +1,12 @@
 import { Router } from 'express';
-import ProductsController from '../typeorm/entities/controllers/ProductsController';
+import ProductsController from '../controllers/ProductsController';
 import { celebrate, Joi, Segments } from 'celebrate';
 
 const productsRouter = Router();
 const productsController = new ProductsController();
 
 productsRouter.get('/', productsController.index);
+
 productsRouter.get(
   '/:id',
   celebrate({
@@ -15,6 +16,7 @@ productsRouter.get(
   }),
   productsController.show,
 );
+
 productsRouter.post(
   '/',
   celebrate({
@@ -26,6 +28,7 @@ productsRouter.post(
   }),
   productsController.create,
 );
+
 productsRouter.put(
   '/',
   celebrate({
@@ -40,6 +43,7 @@ productsRouter.put(
   }),
   productsController.update,
 );
+
 productsRouter.delete(
   '/:id',
   celebrate({
