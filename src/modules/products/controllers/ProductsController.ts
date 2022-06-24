@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
-import CreateProductService from '../typeorm/entities/services/CreateProductService';
-import DeleteProductService from '../typeorm/entities/services/DeleteProductService';
-import ListProductService from '../typeorm/entities/services/ListProductService';
-import ShowProductService from '../typeorm/entities/services/ShowProductService';
-import UpdateProductService from '../typeorm/entities/services/UpdateProductService';
+import CreateProductService from '../services/CreateProductService';
+import DeleteProductService from '../services/DeleteProductService';
+import ListProductService from '../services/ListProductService';
+import ShowProductService from '../services/ShowProductService';
+import UpdateProductService from '../services/UpdateProductService';
 
 export default class ProductsController {
   public async index(request: Request, response: Response): Promise<Response> {
