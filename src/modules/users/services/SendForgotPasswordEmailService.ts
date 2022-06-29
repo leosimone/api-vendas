@@ -2,6 +2,7 @@ import AppError from '@shared/errors/AppError';
 import { getCustomRepository } from 'typeorm';
 import UsersRepository from '../typeorm/repositories/UserRepository';
 import UserTokenRepository from '../typeorm/repositories/UserTokenRepository';
+import EtherealMail from '@config/mail/EtherealMail';
 
 interface IRequest {
   email: string;
@@ -18,7 +19,12 @@ class SendForgotPasswordEmailService {
       throw new AppError('User does not exists');
     }
     const token = await userTokenRepository.generate(user.id);
-    console.log(token, 'token');
+    //console.log(token, 'token');
+    //abaixo serviço de recuperação de email, aula 65, usando Ethereal fake email
+    await EtherealMail.sendMail({
+      to: email,
+      body: `Solicitação de redefinição de senha: ${token?.token}`,
+    });
   }
 }
 export default SendForgotPasswordEmailService;
