@@ -22,6 +22,7 @@ export default class UsersController {
       email,
       password,
     });
+    console.log('user:', user);
 
     return response.json(user);
   }

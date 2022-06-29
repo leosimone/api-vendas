@@ -9,7 +9,7 @@ class UserTokenRepository extends Repository<UserToken> {
         token,
       },
     });
-
+    console.log(userToken);
     return userToken;
   }
 
@@ -18,6 +18,7 @@ class UserTokenRepository extends Repository<UserToken> {
       user_id,
     });
     await this.save(userToken);
+    console.log(userToken);
     return userToken;
   }
 }
