@@ -3,9 +3,9 @@ import UsersRepository from '../typeorm/repositories/UserRepository';
 import UserTokenRepository from '../typeorm/repositories/UserTokenRepository';
 import AppError from '@shared/errors/AppError';
 // eslint-disable-next-line prettier/prettier
-import {isAfter, addHours} from 'date-fns';
+import { isAfter, addHours } from 'date-fns';
 // eslint-disable-next-line prettier/prettier
-import {hash} from 'bcryptjs';
+import { hash } from 'bcryptjs';
 
 interface IRequest {
   token: string;
@@ -31,7 +31,7 @@ class ResetPasswordService {
     const tokenCreatedAt = userToken.created_at;
     const compareDate = addHours(tokenCreatedAt, 2);
     // eslint-disable-next-line prettier/prettier
-    if(isAfter(Date.now(), compareDate)){
+    if (isAfter(Date.now(), compareDate)) {
       throw new AppError('token expired');
     }
 
