@@ -4,6 +4,7 @@ import UsersRepository from '../typeorm/repositories/UserRepository';
 import UserTokenRepository from '../typeorm/repositories/UserTokenRepository';
 import EtherealMail from '@config/mail/EtherealMail';
 import IRequestMailForgot from '../interfaces/IRequestMailForgot';
+import path from 'path';
 
 class SendForgotPasswordEmailService {
   public async execute({ email }: IRequestMailForgot): Promise<void> {
@@ -16,7 +17,12 @@ class SendForgotPasswordEmailService {
       throw new AppError('User does not exists');
     }
     const token = await userTokenRepository.generate(user.id);
-    //console.log(token, 'token');
+    const forgotPasswordTemplate = path.resolve(
+      __dirname,
+      '..',
+      'views',
+      'forgotPassword.hbs',
+    );
     //abaixo serviço de recuperação de email, aula 65, usando Ethereal fake email
     await EtherealMail.sendMail({
       to: {
@@ -25,10 +31,10 @@ class SendForgotPasswordEmailService {
       },
       subject: 'API Vendas - recuperação senha',
       templateData: {
-        template: `Solicitação de {{name}} de redefinição de senha: {{token}}`,
+        file: forgotPasswordTemplate,
         variables: {
           name: user.name,
-          token: token?.token,
+          link: `http://localhost:3333/reset_password?token=${token.token}`,
         },
       },
     });

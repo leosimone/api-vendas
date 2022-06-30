@@ -1,6 +1,6 @@
 import ItemplateVariable from './IHandlebarsMail';
 
 export default interface IparseMailTemplate {
-  template: string;
+  file: string;
   variables: ItemplateVariable;
 }
