@@ -2,22 +2,16 @@ import AppError from '@shared/errors/AppError';
 import { compare, hash } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
 import authConfig from '@config/auth';
-import { getCustomRepository } from 'typeorm';
-import User from '../typeorm/entities/User';
 import UsersRepository from '../typeorm/repositories/UserRepository';
-
-interface IRequest {
-  email: string;
-  password: string;
-}
-
-interface IResponse {
-  user: User;
-  token: string;
-}
+import IRequestSession from '@modules/interfaces/users/IRequestSession';
+import IResponseSession from '@modules/interfaces/users/IResponseSession';
+import { getCustomRepository } from 'typeorm';
 
 class CreateSessionsService {
-  public async execute({ email, password }: IRequest): Promise<IResponse> {
+  public async execute({
+    email,
+    password,
+  }: IRequestSession): Promise<IResponseSession> {
     const usersRepository = getCustomRepository(UsersRepository);
     const user = await usersRepository.findByEmail(email);
 

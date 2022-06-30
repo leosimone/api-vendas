@@ -6,14 +6,10 @@ import AppError from '@shared/errors/AppError';
 import { isAfter, addHours } from 'date-fns';
 // eslint-disable-next-line prettier/prettier
 import { hash } from 'bcryptjs';
-
-interface IRequest {
-  token: string;
-  password: string;
-}
+import IRequestPassword from '@modules/interfaces/users/IRequestPassword';
 
 class ResetPasswordService {
-  public async execute({ token, password }: IRequest): Promise<void> {
+  public async execute({ token, password }: IRequestPassword): Promise<void> {
     //void, não vai precisar retornar nada, só enviar o email
     const usersRepository = getCustomRepository(UsersRepository);
     const userTokenRepository = getCustomRepository(UserTokenRepository);
