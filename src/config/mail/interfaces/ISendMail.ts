@@ -1,4 +1,9 @@
+import IMailContact from './IMailContact';
+import IparseMailTemplate from './IParseMail';
+
 export default interface ISendMail {
-  to: string;
-  body: string;
+  to: IMailContact;
+  from?: IMailContact;
+  subject: string;
+  templateData: IparseMailTemplate;
 }

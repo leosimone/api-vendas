@@ -19,8 +19,18 @@ class SendForgotPasswordEmailService {
     //console.log(token, 'token');
     //abaixo serviço de recuperação de email, aula 65, usando Ethereal fake email
     await EtherealMail.sendMail({
-      to: email,
-      body: `Solicitação de redefinição de senha: ${token?.token}`,
+      to: {
+        name: user.name,
+        email: user.email,
+      },
+      subject: 'API Vendas - recuperação senha',
+      templateData: {
+        template: `Solicitação de {{name}} de redefinição de senha: {{token}}`,
+        variables: {
+          name: user.name,
+          token: token?.token,
+        },
+      },
     });
   }
 }
