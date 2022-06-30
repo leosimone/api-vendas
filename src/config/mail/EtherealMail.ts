@@ -1,4 +1,4 @@
-import ISendMail from '@modules/interfaces/users/ISendMail';
+import ISendMail from './interfaces/ISendMail';
 import nodemailer from 'nodemailer';
 
 export default class EtherealMail {

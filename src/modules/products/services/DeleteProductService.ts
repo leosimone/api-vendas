@@ -1,15 +1,11 @@
+import IRequestDelete from '../interfaces/IRequestDelete';
 import AppError from '@shared/errors/AppError';
 import { Interface } from 'readline';
 import { getCustomRepository } from 'typeorm';
-import Product from '../typeorm/entities/Product';
 import { ProductRepository } from '../typeorm/repositories/ProductsRepository';
 
-interface IRequest {
-  id: string;
-}
-
 class DeleteProductService {
-  public async execute({ id }: IRequest): Promise<void> {
+  public async execute({ id }: IRequestDelete): Promise<void> {
     const productsRepository = getCustomRepository(ProductRepository);
 
     const product = await productsRepository.findOne(id);

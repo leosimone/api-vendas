@@ -1,4 +1,4 @@
-import IRequestUser from '@modules/interfaces/users/IRequestUser';
+import IRequestUser from '../interfaces/IRequestUser';
 import AppError from '@shared/errors/AppError';
 import { hash } from 'bcryptjs';
 import { getCustomRepository } from 'typeorm';

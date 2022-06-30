@@ -6,7 +6,7 @@ import AppError from '@shared/errors/AppError';
 import { isAfter, addHours } from 'date-fns';
 // eslint-disable-next-line prettier/prettier
 import { hash } from 'bcryptjs';
-import IRequestPassword from '@modules/interfaces/users/IRequestPassword';
+import IRequestPassword from '../interfaces/IRequestPassword';
 
 class ResetPasswordService {
   public async execute({ token, password }: IRequestPassword): Promise<void> {

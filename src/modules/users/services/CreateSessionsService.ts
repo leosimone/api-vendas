@@ -3,8 +3,8 @@ import { compare, hash } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
 import authConfig from '@config/auth';
 import UsersRepository from '../typeorm/repositories/UserRepository';
-import IRequestSession from '@modules/interfaces/users/IRequestSession';
-import IResponseSession from '@modules/interfaces/users/IResponseSession';
+import IRequestSession from '../interfaces/IRequestSession';
+import IResponseSession from '../interfaces/IResponseSession';
 import { getCustomRepository } from 'typeorm';
 
 class CreateSessionsService {

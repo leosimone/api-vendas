@@ -3,7 +3,7 @@ import { getCustomRepository } from 'typeorm';
 import UsersRepository from '../typeorm/repositories/UserRepository';
 import UserTokenRepository from '../typeorm/repositories/UserTokenRepository';
 import EtherealMail from '@config/mail/EtherealMail';
-import IRequestMailForgot from '@modules/interfaces/users/IRequestMailForgot';
+import IRequestMailForgot from '../interfaces/IRequestMailForgot';
 
 class SendForgotPasswordEmailService {
   public async execute({ email }: IRequestMailForgot): Promise<void> {

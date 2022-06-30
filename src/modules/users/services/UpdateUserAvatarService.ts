@@ -5,7 +5,7 @@ import UsersRepository from '../typeorm/repositories/UserRepository';
 import upload from '@config/upload';
 import path from 'path';
 import fs from 'fs';
-import IRequestUpdateAvatar from '@modules/interfaces/users/IRequestUpdateAvatar';
+import IRequestUpdateAvatar from '../interfaces/IRequestUpdateAvatar';
 
 class UpdateUserAvatarService {
   public async execute({
