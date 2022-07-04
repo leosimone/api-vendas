@@ -1,6 +1,6 @@
-export default interface IProductOrder {
-  product_id: string;
-  id: string;
-  price: number;
-  quantity: number;
-}
+// export default interface IProductOrder {
+//   id: string;
+//   product_id: string;
+//   price: number;
+//   quantity: number;
+// }
