@@ -73,7 +73,7 @@ class CreateOrderService {
     });
 
     const { order_products } = order;
-
+    //abaixo aula 94
     const updatedProductQuantity = order_products.map(product => ({
       id: product.product_id,
       quantity:
