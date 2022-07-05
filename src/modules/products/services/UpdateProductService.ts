@@ -1,3 +1,4 @@
+import RedisCache from '@shared/cache/RedisCache';
 import AppError from '@shared/errors/AppError';
 import { getCustomRepository } from 'typeorm';
 import IRequestUpdate from '../interfaces/IRequestUpdate';
@@ -14,9 +15,9 @@ class UpdateProductService {
     const productsRepository = getCustomRepository(ProductRepository);
 
     const product = await productsRepository.findOne(id);
-
+    const redisCache = new RedisCache();
     if (!product) {
-      throw new AppError('Product nodt found');
+      throw new AppError('Product not found');
     }
 
     const productExists = await productsRepository.findByName(name);
@@ -27,6 +28,8 @@ class UpdateProductService {
     product.name = name;
     product.price = price;
     product.quantity = quantity;
+
+    await redisCache.invalidate('api-vendas-PRODUCTS_LIST');
 
     await productsRepository.save(product);
 
