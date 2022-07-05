@@ -2,7 +2,8 @@ import { Request, Response } from 'express';
 
 import ShowProfileService from '../services/ShowProfileService';
 import UpdateProfileService from '../services/UpdateProfileService';
-
+import { instanceToInstance } from 'class-transformer';
+//class transformer, aula 100, classToClass depreciada
 export default class ProfileController {
   public async show(request: Request, response: Response): Promise<Response> {
     //abaixo é a listagem
@@ -11,7 +12,7 @@ export default class ProfileController {
 
     const user = await showProfile.execute({ user_id });
 
-    return response.json(user);
+    return response.json(instanceToInstance(user));
   }
 
   public async update(request: Request, response: Response): Promise<Response> {
@@ -28,6 +29,6 @@ export default class ProfileController {
       old_password,
     });
 
-    return response.json(user);
+    return response.json(instanceToInstance(user));
   }
 }
