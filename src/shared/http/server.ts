@@ -1,4 +1,5 @@
 import 'reflect-metadata';
+import 'dotenv/config';
 import express, { NextFunction, Request, Response } from 'express';
 import 'express-async-errors';
 import cors from 'cors';
@@ -11,7 +12,9 @@ import uploadConfig from '@config/upload';
 
 const app = express();
 
+//abaixo aula 98 sobre o pagination
 app.use(pagination);
+
 app.use(cors());
 app.use(express.json());
 app.use('/files', express.static(uploadConfig.directory));
