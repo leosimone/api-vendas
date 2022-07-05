@@ -1,10 +1,12 @@
 import { Router } from 'express';
 import { celebrate, Joi, Segments } from 'celebrate';
 import OrdersController from '../controllers/OrdersController';
+import isAuthenticated from '@shared/http/middlewares/isAuthenticated';
 
 const ordersRoutes = Router();
 const ordersController = new OrdersController();
 
+ordersRoutes.use(isAuthenticated);
 // aula 95 sobre rotas, mostra no insomnia
 
 ordersRoutes.get(
