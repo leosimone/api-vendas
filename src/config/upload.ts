@@ -10,7 +10,7 @@ export default {
   directory: uploadFolder,
   tmpFolder,
   storage: multer.diskStorage({
-    destination: uploadFolder,
+    destination: tmpFolder,
     //abaixo renomeia arquivo - Multer é para armazenar arquivos, os avatares no caso.
     filename(request, file, callback) {
       //usando crypto para criar hash, arquivos nunca terão mesmo nome
