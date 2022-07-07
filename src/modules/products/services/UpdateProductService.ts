@@ -2,7 +2,7 @@ import redisCache from '@shared/cache/RedisCache';
 import AppError from '@shared/errors/AppError';
 import { getCustomRepository } from 'typeorm';
 import IRequestUpdate from '../interfaces/IRequestUpdate';
-import Product from '../typeorm/entities/Product';
+import Product from '../typeorm/entities/product';
 import { ProductRepository } from '../typeorm/repositories/ProductsRepository';
 
 class UpdateProductService {

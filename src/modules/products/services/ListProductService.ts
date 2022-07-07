@@ -1,6 +1,6 @@
 import redisCache from '@shared/cache/RedisCache';
 import { getCustomRepository } from 'typeorm';
-import Product from '../typeorm/entities/Product';
+import Product from '../typeorm/entities/product';
 import { ProductRepository } from '../typeorm/repositories/ProductsRepository';
 
 class ListProductService {

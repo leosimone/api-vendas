@@ -1,7 +1,7 @@
 import IRequestCreateProduct from '../interfaces/IRequestCreateProduct';
 import AppError from '@shared/errors/AppError';
 import { getCustomRepository } from 'typeorm';
-import Product from '../typeorm/entities/Product';
+import Product from '../typeorm/entities/product';
 import { ProductRepository } from '../typeorm/repositories/ProductsRepository';
 import redisCache from '@shared/cache/RedisCache';
 
