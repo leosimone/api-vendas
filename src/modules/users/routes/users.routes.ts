@@ -9,7 +9,8 @@ import UserAvatarController from '../controllers/UserAvatarController';
 const usersRouter = Router();
 const usersController = new UsersController();
 const usersAvatarController = new UserAvatarController();
-const uploadConfig = multer(upload);
+//abaixo refatorado na aula 119
+const uploadConfig = multer(upload.multer);
 
 //token validação = aula 48
 usersRouter.get('/', isAuthenticated, usersController.index);
