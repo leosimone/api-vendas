@@ -4,7 +4,7 @@ import express, { NextFunction, Request, Response } from 'express';
 import 'express-async-errors';
 import cors from 'cors';
 import routes from './routes';
-import AppError from '../errors/AppError';
+import AppError from '../../errors/AppError';
 import '../typeorm';
 import { errors } from 'celebrate';
 import { pagination } from 'typeorm-pagination';

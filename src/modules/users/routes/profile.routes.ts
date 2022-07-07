@@ -3,7 +3,7 @@ import { celebrate, Joi, Segments } from 'celebrate';
 
 import upload from '@config/upload';
 
-import isAuthenticated from '../../../shared/http/middlewares/isAuthenticated';
+import isAuthenticated from '../../../shared/infra/http/middlewares/isAuthenticated';
 import ProfileController from '../controllers/ProfileController';
 
 const profileRouter = Router();

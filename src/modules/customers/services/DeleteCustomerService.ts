@@ -1,7 +1,7 @@
 import AppError from '@shared/errors/AppError';
 import { getCustomRepository } from 'typeorm';
 import IRequestDeleteCustomer from '../interfaces/IRequestDeleteCustomer';
-import CustomersRepository from '../typeorm/repositories/CustomersRepository';
+import CustomersRepository from '../infra/typeorm/repositories/CustomersRepository';
 
 class DeleteCustomerService {
   public async execute({ id }: IRequestDeleteCustomer): Promise<void> {
