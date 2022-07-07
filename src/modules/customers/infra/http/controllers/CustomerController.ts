@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import { container } from 'tsyringe';
 import CreateCustomerService from '../../../services/CreateCustomerService';
 import DeleteCustomerService from '../../../services/DeleteCustomerService';
 import ListCustomerService from '../../../services/ListCustomerService';
@@ -23,9 +24,11 @@ export default class CustomerController {
     return response.json(customer);
   }
 
+  //abaixo refatorado na aula 138 sobre containers e injections
+
   public async create(request: Request, response: Response): Promise<Response> {
     const { name, email } = request.body;
-    const createCustomer = new CreateCustomerService();
+    const createCustomer = container.resolve(CreateCustomerService);
     const customer = await createCustomer.execute({
       name,
       email,
