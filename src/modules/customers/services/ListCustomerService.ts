@@ -1,5 +1,5 @@
 import { getCustomRepository } from 'typeorm';
-import IPaginateCustomer from '../interfaces/IPaginateCustomer';
+import IPaginateCustomer from '../domain/interfaces/IPaginateCustomer';
 import CustomersRepository from '../infra/typeorm/repositories/CustomersRepository';
 
 class ListCustomerService {

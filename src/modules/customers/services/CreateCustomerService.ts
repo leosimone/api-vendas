@@ -1,7 +1,7 @@
 import { getCustomRepository } from 'typeorm';
 import CustomersRepository from '../infra/typeorm/repositories/CustomersRepository';
 import Customer from '../infra/typeorm/entities/Customer';
-import IRequestCreateCustomer from '../interfaces/IRequestCreateCustomer';
+import IRequestCreateCustomer from '../domain/interfaces/IRequestCreateCustomer';
 import AppError from '@shared/errors/AppError';
 
 class CreateCustomerService {

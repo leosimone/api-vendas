@@ -1,6 +1,6 @@
 import AppError from '@shared/errors/AppError';
 import { getCustomRepository } from 'typeorm';
-import IRequestDeleteCustomer from '../interfaces/IRequestDeleteCustomer';
+import IRequestDeleteCustomer from '../domain/interfaces/IRequestDeleteCustomer';
 import CustomersRepository from '../infra/typeorm/repositories/CustomersRepository';
 
 class DeleteCustomerService {

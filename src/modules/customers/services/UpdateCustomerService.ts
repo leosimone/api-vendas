@@ -1,6 +1,6 @@
 import AppError from '@shared/errors/AppError';
 import { getCustomRepository } from 'typeorm';
-import IRequestUpdateCustomer from '../interfaces/IRequestUpdateCustomer';
+import IRequestUpdateCustomer from '../domain/interfaces/IRequestUpdateCustomer';
 import Customer from '../infra/typeorm/entities/Customer';
 import CustomersRepository from '../infra/typeorm/repositories/CustomersRepository';
 
