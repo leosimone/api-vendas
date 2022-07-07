@@ -1,11 +1,15 @@
 import Redis, { Redis as RedisClient } from 'ioredis';
 import cacheConfig from '@config/cache';
 
-export default class RedisCache {
+class RedisCache {
   private client: RedisClient;
+  private connected = false;
 
   constructor() {
-    this.client = new Redis(cacheConfig.config.redis);
+    if (!this.connected) {
+      this.client = new Redis(cacheConfig.config.redis);
+      this.connected = true;
+    }
   }
 
   //aula 102 de inicio com cache, usa o T generico pois não sabe o que será salvo
@@ -29,3 +33,4 @@ export default class RedisCache {
     await this.client.del(key);
   }
 }
+export default new RedisCache();

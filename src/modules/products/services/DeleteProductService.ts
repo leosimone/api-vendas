@@ -3,7 +3,7 @@ import AppError from '@shared/errors/AppError';
 import { Interface } from 'readline';
 import { getCustomRepository } from 'typeorm';
 import { ProductRepository } from '../typeorm/repositories/ProductsRepository';
-import RedisCache from '@shared/cache/RedisCache';
+import redisCache from '@shared/cache/RedisCache';
 
 class DeleteProductService {
   public async execute({ id }: IRequestDelete): Promise<void> {
@@ -11,7 +11,7 @@ class DeleteProductService {
 
     const product = await productsRepository.findOne(id);
 
-    const redisCache = new RedisCache();
+    // const redisCache = new RedisCache();
 
     if (!product) {
       throw new AppError('Product nodt found');

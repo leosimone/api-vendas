@@ -20,24 +20,6 @@ class UpdateUserAvatarService {
     if (!user) {
       throw new AppError('User not found');
     }
-
-    if (upload.driver === 's3') {
-      const s3Provider = new S3StorageProvider();
-      //refatorado abaixo na aula 119
-      if (user.avatar) {
-        await s3Provider.deleteFile(user.avatar);
-      }
-    } else {
-      const diskProvider = new DiskStorageProvider();
-      //refatorado abaixo na aula 119
-      if (user.avatar) {
-        await diskProvider.deleteFile(user.avatar);
-      }
-
-      const fileName = await diskProvider.saveFile(avatarFilename);
-      user.avatar = fileName;
-    }
-
     //abaixo tudo foi comentado pois foi refatorado na aula 116
     // //abaixo pega o caminho do arquivo e junta com o nome do avatar, pelo join
     // const userAvatarFilePath = path.join(upload.directory, user.avatar);
@@ -47,6 +29,22 @@ class UpdateUserAvatarService {
     // if (userAvatarfileExists) {
     //   await fs.promises.unlink(userAvatarFilePath); //unlink já deleta
     // }
+
+    if (upload.driver === 's3') {
+      const s3Provider = new S3StorageProvider();
+      if (user.avatar) {
+        await s3Provider.deleteFile(user.avatar);
+      }
+      const filename = await s3Provider.saveFile(avatarFilename);
+      user.avatar = filename;
+    } else {
+      const diskProvider = new DiskStorageProvider();
+      if (user.avatar) {
+        await diskProvider.deleteFile(user.avatar);
+      }
+      const filename = await diskProvider.saveFile(avatarFilename);
+      user.avatar = filename;
+    }
 
     await usersRepository.save(user);
 

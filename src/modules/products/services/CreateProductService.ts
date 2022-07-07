@@ -3,7 +3,7 @@ import AppError from '@shared/errors/AppError';
 import { getCustomRepository } from 'typeorm';
 import Product from '../typeorm/entities/Product';
 import { ProductRepository } from '../typeorm/repositories/ProductsRepository';
-import RedisCache from '@shared/cache/RedisCache';
+import redisCache from '@shared/cache/RedisCache';
 
 class CreateProductService {
   public async execute({
@@ -17,8 +17,8 @@ class CreateProductService {
     if (productExists) {
       throw new AppError('There is already a product with this name');
     }
-
-    const redisCache = new RedisCache();
+    //abaixo refatorado na aula 120
+    // const redisCache = new RedisCache();
 
     const product = productsRepository.create({
       name,
