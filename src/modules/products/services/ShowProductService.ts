@@ -2,8 +2,8 @@ import AppError from '@shared/errors/AppError';
 import { Interface } from 'readline';
 import { getCustomRepository } from 'typeorm';
 import IRequestShow from '../interfaces/IRequestShow';
-import Product from '../typeorm/entities/product';
-import { ProductRepository } from '../typeorm/repositories/ProductsRepository';
+import Product from '../infra/typeorm/entities/product';
+import { ProductRepository } from '../infra/typeorm/repositories/ProductsRepository';
 
 class ShowProductService {
   public async execute({ id }: IRequestShow): Promise<Product> {

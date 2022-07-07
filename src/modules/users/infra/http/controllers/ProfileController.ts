@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 
-import ShowProfileService from '../services/ShowProfileService';
-import UpdateProfileService from '../services/UpdateProfileService';
+import ShowProfileService from '../../../services/ShowProfileService';
+import UpdateProfileService from '../../../services/UpdateProfileService';
 import { instanceToInstance } from 'class-transformer';
 //class transformer, aula 100, classToClass depreciada
 export default class ProfileController {

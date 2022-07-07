@@ -1,6 +1,6 @@
 import { getCustomRepository } from 'typeorm';
-import UsersRepository from '../typeorm/repositories/UserRepository';
-import UserTokenRepository from '../typeorm/repositories/UserTokenRepository';
+import UsersRepository from '../infra/typeorm/repositories/UserRepository';
+import UserTokenRepository from '../infra/typeorm/repositories/UserTokenRepository';
 import AppError from '@shared/errors/AppError';
 // eslint-disable-next-line prettier/prettier
 import { isAfter, addHours } from 'date-fns';

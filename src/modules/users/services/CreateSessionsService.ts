@@ -2,7 +2,7 @@ import AppError from '@shared/errors/AppError';
 import { compare, hash } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
 import authConfig from '@config/auth';
-import UsersRepository from '../typeorm/repositories/UserRepository';
+import UsersRepository from '../infra/typeorm/repositories/UserRepository';
 import IRequestSession from '../interfaces/IRequestSession';
 import IResponseSession from '../interfaces/IResponseSession';
 import { getCustomRepository } from 'typeorm';

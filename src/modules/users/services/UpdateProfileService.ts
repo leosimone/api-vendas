@@ -1,8 +1,8 @@
 import AppError from '@shared/errors/AppError';
 import { getCustomRepository } from 'typeorm';
 import IRequestUpdateProfile from '../interfaces/IRequestUpdateProfile';
-import User from '../typeorm/entities/User';
-import UsersRepository from '../typeorm/repositories/UserRepository';
+import User from '../infra/typeorm/entities/User';
+import UsersRepository from '../infra/typeorm/repositories/UserRepository';
 import { compare, hash } from 'bcryptjs';
 
 class UpdateProfileService {

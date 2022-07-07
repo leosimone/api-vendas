@@ -1,5 +1,5 @@
 import { EntityRepository, In, Repository } from 'typeorm';
-import Product from '@modules/products/typeorm/entities/product';
+import Product from '@modules/products/infra/typeorm/entities/product';
 
 interface IFindProducts {
   id: string;

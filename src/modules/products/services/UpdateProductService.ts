@@ -2,8 +2,8 @@ import redisCache from '@shared/cache/RedisCache';
 import AppError from '@shared/errors/AppError';
 import { getCustomRepository } from 'typeorm';
 import IRequestUpdate from '../interfaces/IRequestUpdate';
-import Product from '../typeorm/entities/product';
-import { ProductRepository } from '../typeorm/repositories/ProductsRepository';
+import Product from '../infra/typeorm/entities/product';
+import { ProductRepository } from '../infra/typeorm/repositories/ProductsRepository';
 
 class UpdateProductService {
   public async execute({

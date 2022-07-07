@@ -35,7 +35,7 @@
     "typescript": "^4.6.4"
   },
   "scripts": {
-    "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/shared/http/server.ts",
+    "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/shared/infra/http/server.ts",
     "test": "echo \"Error: no test specified\" &amp;&amp; exit 1",
     "lint": "eslint . --ext .ts",
     "lint-fix": "eslint . --ext .ts --fix",
