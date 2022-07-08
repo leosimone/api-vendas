@@ -68,7 +68,7 @@
     "reflect-metadata": "^0.1.13",
     "ts-node": "^10.7.0",
     "tsyringe": "^4.4.0",
-    "typeorm": "^0.3.6",
+    "typeorm": "^0.2.29",
     "uuid": "^8.3.2"
   }
 }
