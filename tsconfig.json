@@ -1,14 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
+    "target": "es2016",
     "lib": ["es6"],
-    "allowJs": true,
-    "outDir": "build",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "module": "commonjs",
     "rootDir": "src",
-    "strict": true,
-    "noImplicitAny": true,
-    "strictPropertyInitialization": false,
     "baseUrl": "./",
     "paths": {
       "@config/*": [
@@ -20,60 +17,21 @@
       "@shared/*": [
         "src/shared/*"
       ]
-    },
+      },
     "typeRoots": [
       "@types",
       "./node_modules/@types"
     ],
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
     "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "allowJs": true,
+    "outDir": "build",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictPropertyInitialization": false,
+    "skipLibCheck": true
   },
-    "include": ["src/**/*"],
-    //"exclude": ["node_modules", "build/**/*"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "build/**/*"]
 }
-
-
-
-// {
-//   "compilerOptions": {
-//     "target": "es2016",
-//     "lib": ["es6"],
-//     "experimentalDecorators": true,
-//     "emitDecoratorMetadata": true,
-//     "module": "commonjs",
-//     "rootDir": "src",
-//     "baseUrl": "./",
-//     "paths": {
-//       "@config/*": [
-//         "src/config/*"
-//       ],
-//       "@modules/*": [
-//         "src/modules/*"
-//       ],
-//       "@shared/*": [
-//         "src/shared/*"
-//       ]
-//       },
-//     "typeRoots": [
-//       "@types",
-//       "./node_modules/@types"
-//     ],
-//     "resolveJsonModule": true,
-//     "allowJs": true,
-//     "outDir": "build",
-//     "esModuleInterop": true,
-//     "forceConsistentCasingInFileNames": true,
-//     "strict": true,
-//     "noImplicitAny": true,
-//     "strictPropertyInitialization": false,
-
-//     "skipLibCheck": true
-//   },
-//   "include": ["src/**/*"],
-//   "exclude": ["node_modules", "build/**/*"]
-// }
-
