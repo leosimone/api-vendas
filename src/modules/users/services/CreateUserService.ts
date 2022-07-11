@@ -13,7 +13,8 @@ class CreateUserService {
     if (emailExists) {
       throw new AppError('Email already used.');
     }
-
+    // abaixo na aula 150 é refatorado, aqui ainda não foi feito por ter
+    // refazer a parte do singleton antes
     const hashedPassword = await hash(password, 8);
 
     const user = usersRepository.create({
